@@ -1,8 +1,4 @@
 import React, { useRef, useState } from "react";
-import SectionFields from "./SectionFields";
-import InputField from "./InputField";
-import DateField from "./DateField";
-import DescField from "./DescField";
 
 export default function DropDownField({ children }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -32,7 +28,7 @@ export default function DropDownField({ children }) {
             onMouseLeave={() => {
               setIsTrashHovered(false)
             }}
-            class="fa-solid fa-trash text-dark-gray hover:text-red-500"
+            className="fa-solid fa-trash text-dark-gray hover:text-red-500"
           ></i>
           <span className={`${showDetails ? "-rotate-90" : "rotate-90"}`}>
             {">"}

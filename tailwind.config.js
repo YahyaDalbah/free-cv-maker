@@ -11,7 +11,7 @@ module.exports = {
         "gray-bg": "#656E83",
       },
       height: {
-        pdf: "842px",
+        pdf: "830px",
       },
       width: {
         pdf: "595px",

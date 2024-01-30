@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import PersonalDetails from "./Sections/PersonalDetails";
-import Summary from "./Sections/ProfileSummary";
-import EmploymentHistory from "./Sections/EmploymentHistory";
-import Education from "./Sections/Education";
-import Skills from "./Sections/Skills";
+import PersonalDetails from "./DetailsSections/PersonalDetails";
+import Summary from "./DetailsSections/ProfileSummary";
+import EmploymentHistory from "./DetailsSections/EmploymentHistory";
+import Education from "./DetailsSections/Education";
+import Skills from "./DetailsSections/Skills";
 import CVPage from "./Pages/CVPage";
 import DetailsPage from "./Pages/DetailsPage";
+import CV from "./CVSections/CV";
+import { jsPDF } from "jspdf";
 
 export default function App() {
   const [showPdf, setShowPdf] = useState(false);
@@ -52,15 +54,25 @@ export default function App() {
               <button className="hover:bg-gray-600 cv-page-button">
                 Select template
               </button>
-              <button className=" bg-blue hover:bg-hover-blue cv-page-button font-semibold">
+              <button
+                onClick={() => {
+                  const doc = new jsPDF({
+                    unit: "pt",
+                  });
+                  const elementToConvert = document.querySelector("#cv");
+                  doc.html(elementToConvert, {
+                    callback: (doc) => {
+                      doc.save();
+                    },
+                  });
+                }}
+                className=" bg-blue hover:bg-hover-blue cv-page-button font-semibold"
+              >
                 Download PDF
               </button>
             </div>
             <div className="bg-gray-bg ">
-              <div className="bg-white h-pdf scale-90 md:transform-none">
-                <h1>yahya dalbah</h1>
-                <p>front end developer</p>
-              </div>
+              <CV />
             </div>
           </div>
         </CVPage>
@@ -70,7 +82,7 @@ export default function App() {
         onClick={() => setShowPdf((prev) => !prev)}
         className=" fixed bottom-6 right-3 bg-blue hover:bg-hover-blue text-white  w-14 h-14 rounded-full xl:hidden"
       >
-        <i class="fa-solid fa-file-pdf"></i>
+        <i className="fa-solid fa-file-pdf"></i>
       </button>
     </>
   );

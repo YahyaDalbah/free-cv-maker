@@ -20,3 +20,20 @@
 .cv-page-button{
   @apply rounded-full py-2 px-3 text-sm
 }
+
+.cv-heading-text{
+  font-size: 18px;
+  font-weight: 600;
+}
+.cv-desc-text{
+  font-size: 12px;
+  
+}
+.cv-sub-heading-text{
+  font-size: 14px;
+  font-weight:600;
+}
+.cv-date-text{
+  color: #a0a2aa;
+  font-size: 10px;
+}

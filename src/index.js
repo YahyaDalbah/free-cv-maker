@@ -1,11 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
+
+// {
+//   personalDetails: {
+//     ("First Name");
+//     ("Last Name");
+//     ("Email");
+//     ("Job Title");
+//     ("Phone");
+//     ("Country");
+//     ("City");
+//     ("Address");
+//     ("Date Of Birth");
+//   },
+//   educatin: [{},{}],
+//   employmentHistory:[{},{}],
+//   profileSummary: "",
+//   skills: [{},{}]
+// }
