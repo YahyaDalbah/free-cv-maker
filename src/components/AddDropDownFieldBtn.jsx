@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function AddDropDownFieldBtn({ text }) {
+export default function AddDropDownFieldBtn({ text,handleClick }) {
   return (
-    <button className=" text-blue mt-3 hover:text-hover-blue">+ {text}</button>
+    <button onClick={handleClick} className=" text-blue mt-3 hover:text-hover-blue">+ {text}</button>
   );
 }

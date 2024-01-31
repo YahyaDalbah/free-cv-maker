@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import blankHead from "../assets/blank-head.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setImage } from "../Features/personalDetails";
 
 export default function ImageField() {

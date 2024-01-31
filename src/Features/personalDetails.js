@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialPersonalDetailsState = {
+const initialState = {
   firstName: "",
   lastName: "",
   email: "",
@@ -15,7 +15,7 @@ const initialPersonalDetailsState = {
 
 export const personalDetailsSlice = createSlice({
     name: 'personalDetails',
-    initialState: initialPersonalDetailsState,
+    initialState,
     reducers:{
       setImage: (state,action) => {
         state.imageURL = action.payload

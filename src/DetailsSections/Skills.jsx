@@ -10,7 +10,7 @@ export default function Skills() {
     <div>
       <SectionTitle title={"Skills"} />
       <div className="drop-down-container">
-        <DropDownField>
+        {/* <DropDownField>
           <SectionFields>
             <InputField label={"Skill"} section={"skills + 0"} />
             <SelectField label={"Experience level"} section={"skills + 0"} />
@@ -21,7 +21,7 @@ export default function Skills() {
             <InputField label={"Skill"} section={"skills + 1"} />
             <SelectField label={"Experience level"} section={"skills + 1"} />
           </SectionFields>
-        </DropDownField>
+        </DropDownField> */}
       </div>
       <AddDropDownFieldBtn text={"Add a skill"} />
     </div>

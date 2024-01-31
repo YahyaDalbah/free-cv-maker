@@ -27,7 +27,7 @@
 }
 .cv-desc-text{
   font-size: 12px;
-  
+  max-width: 100%;
 }
 .cv-sub-heading-text{
   font-size: 14px;

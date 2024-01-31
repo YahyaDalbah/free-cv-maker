@@ -1,9 +1,20 @@
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteEmployment } from "../Features/employmentHistory";
 
-export default function DropDownField({ children }) {
+export default function DropDownField({ children, section, idInArray }) {
   const [showDetails, setShowDetails] = useState(false);
-  const [isTrashHovered, setIsTrashHovered] = useState(false)
-  const [title, setTitle] = useState("(Untitled)");
+  const [isTrashHovered, setIsTrashHovered] = useState(false);
+  const dispatch = useDispatch()
+  const title = useSelector((state) => {
+    if (section.includes("employmentHistory")) {
+      for (const employment of state.employmentHistory) {
+        if (employment.id === idInArray) {
+          return employment.jobTitle ? `${employment.jobTitle} ${employment.company ? "at" : ""} ${employment.company}` : "(Untitled)";
+        }
+      }
+    }
+  });
   const dropDownContainer = useRef(null);
 
   const transitionStyle = {
@@ -16,17 +27,24 @@ export default function DropDownField({ children }) {
   return (
     <div className="border border-light-gray px-3 pb-3 rounded-md">
       <div
-        onClick={() => setShowDetails((prev) => !prev)}
-        className={`flex justify-between pt-8 pb-5  transition-colors ${!isTrashHovered ? "hover:text-blue" : ""} cursor-pointer`}
+        onClick={() => {
+          if (!isTrashHovered) setShowDetails((prev) => !prev);
+        }}
+        className={`flex justify-between pt-8 pb-5  transition-colors ${
+          !isTrashHovered ? "hover:text-blue" : ""
+        } cursor-pointer`}
       >
         <h3>{title}</h3>
         <div className="flex gap-x-6 items-center">
           <i
             onMouseEnter={() => {
-              setIsTrashHovered(true)
+              setIsTrashHovered(true);
             }}
             onMouseLeave={() => {
-              setIsTrashHovered(false)
+              setIsTrashHovered(false);
+            }}
+            onClick={() => {
+              dispatch(deleteEmployment(idInArray));
             }}
             className="fa-solid fa-trash text-dark-gray hover:text-red-500"
           ></i>

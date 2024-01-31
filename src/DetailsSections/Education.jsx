@@ -11,7 +11,7 @@ export default function Education() {
     <div>
       <SectionTitle title={"Education"} />
       <div className="drop-down-container">
-        <DropDownField>
+        {/* <DropDownField>
           <SectionFields>
             <InputField label={"School"} section={"education + 0"} />
             <InputField label={"Degree"} section={"education + 0"} />
@@ -28,7 +28,7 @@ export default function Education() {
             <InputField label={"Field"} section={"education + 0"} />
             <DescField label={"Description"} section={"education + 0"} />
           </SectionFields>
-        </DropDownField>
+        </DropDownField> */}
       </div>
       <AddDropDownFieldBtn text={"Add education"} />
     </div>
