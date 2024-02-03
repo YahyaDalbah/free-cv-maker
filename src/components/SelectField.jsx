@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSkill } from "../Features/skills";
+import { setLanguage } from "../Features/languages";
 
-export default function SelectField({ label, section, idInArray, keyField }) {
+export default function SelectField({ label, section, idInArray, keyField, levels }) {
   const [showOptions, setShowOptions] = useState(false);
   const dispatch = useDispatch();
 
@@ -10,6 +11,13 @@ export default function SelectField({ label, section, idInArray, keyField }) {
     if (section.includes("skills")) {
       dispatch(
         setSkill({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("languages")) {
+      dispatch(
+        setLanguage({
           id: idInArray,
           changedField: [keyField, e.target.value],
         })
@@ -29,10 +37,10 @@ export default function SelectField({ label, section, idInArray, keyField }) {
         onClick={() => setShowOptions((prev) => !prev)}
       >
         <option value="">Don't show experience level</option>
-        <option value="Beginner">Beginner</option>
-        <option value="Skillful">Skillful</option>
-        <option value="Experienced">Experienced</option>
-        <option value="Expert">Expert</option>
+        <option value={`${levels[0]}`}>{levels[0]}</option>
+        <option value={`${levels[1]}`}>{levels[1]}</option>
+        <option value={`${levels[2]}`}>{levels[2]}</option>
+        <option value={`${levels[3]}`}>{levels[3]}</option>
       </select>
       <i
         className={`absolute right-2 top-10 transition-all ${

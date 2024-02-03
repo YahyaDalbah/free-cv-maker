@@ -8,6 +8,10 @@ import CVPage from "./Pages/CVPage";
 import DetailsPage from "./Pages/DetailsPage";
 import CV from "./CVSections/CV";
 import { jsPDF } from "jspdf";
+import Projects from "./DetailsSections/Projects";
+import Languages from "./DetailsSections/Languages";
+import Courses from "./DetailsSections/Courses";
+import References from "./DetailsSections/References";
 
 export default function App() {
   const [showPdf, setShowPdf] = useState(false);
@@ -42,6 +46,10 @@ export default function App() {
           <EmploymentHistory />
           <Education />
           <Skills />
+          <Projects />
+          <Languages />
+          <Courses />
+          <References />
         </DetailsPage>
 
         <CVPage

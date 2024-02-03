@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setProfileSummary } from "../Features/profileSummary";
 import { setEmployment } from "../Features/employmentHistory";
 import { setEducation } from "../Features/educations";
+import { setProject } from "../Features/projects";
 
 export default function DescField({
   label,
@@ -26,6 +27,13 @@ export default function DescField({
     } else if (section.includes("education")) {
       dispatch(
         setEducation({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("projects")) {
+      dispatch(
+        setProject({
           id: idInArray,
           changedField: [keyField, e.target.value],
         })

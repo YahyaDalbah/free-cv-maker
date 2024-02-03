@@ -4,6 +4,10 @@ import profileSummaryReducer from "./Features/profileSummary";
 import employmentHistoryReducer from "./Features/employmentHistory";
 import educationsReducer from "./Features/educations";
 import skillsReducer from "./Features/skills";
+import projectsReducer from "./Features/projects";
+import languagesReducer from "./Features/languages";
+import coursesReducer from "./Features/courses";
+import referencesReducer from "./Features/references";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +15,10 @@ export const store = configureStore({
     profileSummary: profileSummaryReducer,
     employmentHistory: employmentHistoryReducer,
     educations: educationsReducer,
-    skills: skillsReducer
+    skills: skillsReducer,
+    projects: projectsReducer,
+    languages: languagesReducer,
+    courses: coursesReducer,
+    references: referencesReducer
   },
 });

@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setEmployment } from "../Features/employmentHistory";
 import { setEducation } from "../Features/educations";
+import { setProject } from "../Features/projects";
+import { setCourse } from "../Features/courses";
 
 export default function DateField({ section, idInArray }) {
   const dispatch = useDispatch();
@@ -17,6 +19,20 @@ export default function DateField({ section, idInArray }) {
     } else if (section.includes("education")) {
       dispatch(
         setEducation({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("projects")) {
+      dispatch(
+        setProject({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("courses")) {
+      dispatch(
+        setCourse({
           id: idInArray,
           changedField: [keyField, e.target.value],
         })

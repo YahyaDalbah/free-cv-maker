@@ -16,7 +16,7 @@ export default function SideDetails() {
         <p className="cv-desc-text">{city}</p>
         <p className="cv-desc-text">{country}</p>
         <p className="cv-desc-text">{phone}</p>
-        <a className="cv-desc-text" href="#">
+        <a className="text-blue text-xs" href="mailto:yahya1dalbah@gmail.com">
           {email}
         </a>
       </div>

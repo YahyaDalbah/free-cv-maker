@@ -24,6 +24,7 @@ export default function Skills() {
           keyField={"level"}
           label={"Experience level"}
           section={`skills + ${skill.id}`}
+          levels={["Beginner", "Skillful", "Experienced", "Expert"]}
         />
       </SectionFields>
     </DropDownField>
@@ -32,7 +33,7 @@ export default function Skills() {
     <div>
       <SectionTitle title={"Skills"} />
       <div className="drop-down-container">{displayedSkills}</div>
-      <AddDropDownFieldBtn addFunction={addSkill} text={"Add a skill"} />
+      <AddDropDownFieldBtn addFunction={addSkill} text={"Add skill"} />
     </div>
   );
 }

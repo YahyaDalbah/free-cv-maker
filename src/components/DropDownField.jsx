@@ -4,6 +4,10 @@ import { deleteEmployment } from "../Features/employmentHistory.js";
 import { getElement } from "../functions";
 import { deleteEducation } from "../Features/educations";
 import { deleteSkill } from "../Features/skills.js";
+import { deleteProject } from "../Features/projects.js";
+import { deleteLanguage } from "../Features/languages.js";
+import { deleteCourse } from "../Features/courses.js";
+import { deleteReference } from "../Features/references.js";
 
 export default function DropDownField({ children, section, idInArray }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -29,7 +33,23 @@ export default function DropDownField({ children, section, idInArray }) {
         : "(Untitled)";
     } else if (section.includes("skills")) {
       const skill = getElement(state.skills, idInArray);
-      return skill.skill ? `${skill.skill}` : "(Untitled)";
+      return skill.skill || "(Untitled)";
+    } else if (section.includes("projects")) {
+      const project = getElement(state.projects, idInArray);
+      return project.projectTitle || "(Untitled)";
+    } else if (section.includes("languages")) {
+      const language = getElement(state.languages, idInArray);
+      return language.language || "(Untitled)";
+    } else if (section.includes("course")) {
+      const course = getElement(state.courses, idInArray);
+      return course.course
+        ? `${course.course} ${course.institution ? "at" : ""} ${
+            course.institution
+          }`
+        : "(Untitled)";
+    } else if (section.includes("references")) {
+      const reference = getElement(state.references, idInArray);
+      return reference.referent || "(Untitled)";
     }
   });
 
@@ -40,6 +60,14 @@ export default function DropDownField({ children, section, idInArray }) {
       dispatch(deleteEducation(idInArray));
     } else if (section.includes("skills")) {
       dispatch(deleteSkill(idInArray));
+    } else if (section.includes("projects")) {
+      dispatch(deleteProject(idInArray));
+    } else if (section.includes("languages")) {
+      dispatch(deleteLanguage(idInArray));
+    } else if (section.includes("courses")) {
+      dispatch(deleteCourse(idInArray));
+    } else if (section.includes("references")) {
+      dispatch(deleteReference(idInArray));
     }
   }
   const dropDownContainer = useRef(null);

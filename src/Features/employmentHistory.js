@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { deleteStateElement, getElement, updateState } from "../functions";
+import { deleteStateElement, updateState } from "../functions";
 
 const initialState = [];
 

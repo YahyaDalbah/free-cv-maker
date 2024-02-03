@@ -4,6 +4,10 @@ import { setPersonalDetails } from "../Features/personalDetails";
 import { setEmployment } from "../Features/employmentHistory";
 import { setEducation } from "../Features/educations";
 import { setSkill } from "../Features/skills";
+import { setProject } from "../Features/projects";
+import { setLanguage } from "../Features/languages";
+import { setCourse } from "../Features/courses";
+import { setReference } from "../Features/references";
 
 export default function InputField({
   label,
@@ -34,6 +38,31 @@ export default function InputField({
     } else if (section.includes("skills")) {
       dispatch(
         setSkill({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("projects")) {
+      dispatch(
+        setProject({ id: idInArray, changedField: [keyField, e.target.value] })
+      );
+    } else if (section.includes("languages")) {
+      dispatch(
+        setLanguage({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("courses")) {
+      dispatch(
+        setCourse({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    } else if (section.includes("references")) {
+      dispatch(
+        setReference({
           id: idInArray,
           changedField: [keyField, e.target.value],
         })
