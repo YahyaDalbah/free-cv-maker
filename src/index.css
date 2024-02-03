@@ -1,39 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-#root{
-  font-family: 'Poppins', sans-serif;
+#root {
+  font-family: "Poppins", sans-serif;
 }
-.drop-down-container{
+.drop-down-container {
   @apply flex flex-col gap-y-4;
 }
 
-.center-with-position{
+.center-with-position {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.cv-page-button{
-  @apply rounded-full py-2 px-3 text-sm
+.cv-page-button {
+  @apply rounded-full py-2 px-3 text-sm;
 }
 
-.cv-heading-text{
+.cv-heading-text {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
 }
-.cv-desc-text{
+.cv-desc-text {
   font-size: 12px;
   max-width: 100%;
+  color: #40464e;
 }
-.cv-sub-heading-text{
+.cv-sub-heading-text {
   font-size: 14px;
-  font-weight:600;
+  font-weight: 700;
 }
-.cv-date-text{
+.cv-date-text {
   color: #a0a2aa;
   font-size: 10px;
 }

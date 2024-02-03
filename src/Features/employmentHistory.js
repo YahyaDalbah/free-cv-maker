@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { getEmployment } from "../functions";
+import { deleteStateElement, getElement, updateState } from "../functions";
 
 const initialState = [];
 
@@ -19,14 +19,10 @@ export const employmentHistorySlice = createSlice({
       });
     },
     setEmployment: (state, action) => {
-      const employment = getEmployment(state, action.payload.id)
-
-      employment[action.payload.changedField[0]] =
-        action.payload.changedField[1];
+      updateState(state, action)
     },
     deleteEmployment: (state, action) => {
-      const employmentToDeleteIndex = state.findIndex(employment => employment.id === action.payload)
-      state.splice(employmentToDeleteIndex,1)
+      deleteStateElement(state, action)
     }
   },
 });

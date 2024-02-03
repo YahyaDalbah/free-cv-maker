@@ -1,8 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSkill } from "../Features/skills";
 
-export default function SelectField({ label, section }) {
+export default function SelectField({ label, section, idInArray, keyField }) {
+  const [showOptions, setShowOptions] = useState(false);
+  const dispatch = useDispatch();
 
-    const [showOptions, setShowOptions] = useState(false)
+  function handleChange(e) {
+    if (section.includes("skills")) {
+      dispatch(
+        setSkill({
+          id: idInArray,
+          changedField: [keyField, e.target.value],
+        })
+      );
+    }
+  }
   return (
     <div className={`flex flex-col relative`}>
       <label className=" text-dark-gray" htmlFor={section + label}>
@@ -11,6 +24,7 @@ export default function SelectField({ label, section }) {
       <select
         className="p-2 my-1 bg-light-gray rounded-sm outline-none appearance-none border-none  cursor-pointer"
         type="text"
+        onChange={handleChange}
         id={section + label}
         onClick={() => setShowOptions((prev) => !prev)}
       >

@@ -5,25 +5,34 @@ import AddDropDownFieldBtn from "../components/AddDropDownFieldBtn";
 import SectionFields from "../components/SectionFields";
 import InputField from "../components/InputField";
 import SelectField from "../components/SelectField";
+import { useSelector } from "react-redux";
+import { addSkill, selectSkills } from "../Features/skills";
 export default function Skills() {
+  const skills = useSelector(selectSkills);
+
+  const displayedSkills = skills.map((skill) => (
+    <DropDownField key={skill.id} idInArray={skill.id} section={"skills"}>
+      <SectionFields>
+        <InputField
+          idInArray={skill.id}
+          keyField={"skill"}
+          label={"Skill"}
+          section={`skills + ${skill.id}`}
+        />
+        <SelectField
+          idInArray={skill.id}
+          keyField={"level"}
+          label={"Experience level"}
+          section={`skills + ${skill.id}`}
+        />
+      </SectionFields>
+    </DropDownField>
+  ));
   return (
     <div>
       <SectionTitle title={"Skills"} />
-      <div className="drop-down-container">
-        {/* <DropDownField>
-          <SectionFields>
-            <InputField label={"Skill"} section={"skills + 0"} />
-            <SelectField label={"Experience level"} section={"skills + 0"} />
-          </SectionFields>
-        </DropDownField>
-        <DropDownField>
-          <SectionFields>
-            <InputField label={"Skill"} section={"skills + 1"} />
-            <SelectField label={"Experience level"} section={"skills + 1"} />
-          </SectionFields>
-        </DropDownField> */}
-      </div>
-      <AddDropDownFieldBtn text={"Add a skill"} />
+      <div className="drop-down-container">{displayedSkills}</div>
+      <AddDropDownFieldBtn addFunction={addSkill} text={"Add a skill"} />
     </div>
   );
 }

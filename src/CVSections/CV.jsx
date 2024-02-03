@@ -10,10 +10,14 @@ import SideSectionChild from "./SideSectionChild";
 import { useSelector } from "react-redux";
 import { selectProfileSummary } from "../Features/profileSummary";
 import { selectEmploymentHistory } from "../Features/employmentHistory";
+import { selectEducation } from "../Features/educations";
+import { selectSkills } from "../Features/skills";
 
 export default function CV() {
   const profileSummary = useSelector(selectProfileSummary);
   const employmentHistory = useSelector(selectEmploymentHistory);
+  const educations = useSelector(selectEducation);
+  const skills = useSelector(selectSkills);
   const displayedEmploymentHistory = employmentHistory.map((employment) => (
     <MainSectionChild
       key={employment.id}
@@ -25,7 +29,24 @@ export default function CV() {
       desc={employment.desc}
     />
   ));
-
+  const displayedEducation = educations.map((education) => (
+    <MainSectionChild
+      key={education.id}
+      workDone={education.degree}
+      place={education.school}
+      startDate={education.startDate}
+      endDate={education.endDate}
+      city={education.city}
+      desc={education.desc}
+    />
+  ));
+  const displayedSkills = skills.map((skill) => (
+    <SideSectionChild
+      key={skill.id}
+      skill={skill.skill}
+      level={skill.level}
+    />
+  ));
   return (
     <div
       id="cv"
@@ -44,14 +65,16 @@ export default function CV() {
               {displayedEmploymentHistory}
             </MainSection>
           )}
+          {displayedEducation.length > 0 && (
+            <MainSection title="education">{displayedEducation}</MainSection>
+          )}
         </Main>
 
         <Side>
           <SideDetails />
-          <SideSection title={"Skills"}>
-            <SideSectionChild skill={"git"} proficiency={"experienced"} />
-            <SideSectionChild skill={"git"} proficiency={"experienced"} />
-          </SideSection>
+          {displayedSkills.length > 0 && <SideSection title={"Skills"}>
+            {displayedSkills}
+          </SideSection>}
         </Side>
       </div>
     </div>

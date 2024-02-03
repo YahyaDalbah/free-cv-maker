@@ -6,14 +6,11 @@ import SectionFields from "../components/SectionFields";
 import DescField from "../components/DescField";
 import InputField from "../components/InputField";
 import DateField from "../components/DateField";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { addEmployment } from "../Features/employmentHistory";
 export default function EmploymentHistory() {
   const employmentHistory = useSelector((state) => state.employmentHistory);
-  const dispatch = useDispatch();
-  function addEmploymentDrop() {
-    dispatch(addEmployment());
-  }
+
   const displayedEmploymentHistory = employmentHistory.map((employment) => (
     <DropDownField
       idInArray={employment.id}
@@ -59,7 +56,7 @@ export default function EmploymentHistory() {
       <div className="drop-down-container">{displayedEmploymentHistory}</div>
       <AddDropDownFieldBtn
         text={"Add employment"}
-        handleClick={addEmploymentDrop}
+        addFunction={addEmployment}
       />
     </div>
   );
