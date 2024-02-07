@@ -1,13 +1,22 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSkill } from "../Features/skills";
 import { setLanguage } from "../Features/languages";
+import { selectStateSection, updateDB } from "../functions";
 
-export default function SelectField({ label, section, idInArray, keyField, levels }) {
+export default function SelectField({
+  label,
+  section,
+  idInArray,
+  keyField,
+  levels,
+}) {
   const [showOptions, setShowOptions] = useState(false);
   const dispatch = useDispatch();
+  
 
   function handleChange(e) {
+    updateDB();
     if (section.includes("skills")) {
       dispatch(
         setSkill({

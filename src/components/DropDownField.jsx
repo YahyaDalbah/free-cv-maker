@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteEmployment } from "../Features/employmentHistory.js";
-import { getElement } from "../functions";
+import { getElement, updateDB } from "../functions";
 import { deleteEducation } from "../Features/educations";
 import { deleteSkill } from "../Features/skills.js";
 import { deleteProject } from "../Features/projects.js";
@@ -25,7 +25,7 @@ export default function DropDownField({ children, section, idInArray }) {
         }
       }
     } else if (section.includes("education")) {
-      const education = getElement(state.educations, idInArray);
+      const education = getElement(state.education, idInArray);
       return education.degree
         ? `${education.degree} ${education.school ? "at" : ""} ${
             education.school
@@ -68,7 +68,10 @@ export default function DropDownField({ children, section, idInArray }) {
       dispatch(deleteCourse(idInArray));
     } else if (section.includes("references")) {
       dispatch(deleteReference(idInArray));
+    }else{
+      console.error("wrong section name")
     }
+    updateDB()
   }
   const dropDownContainer = useRef(null);
 

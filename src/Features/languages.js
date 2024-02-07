@@ -14,6 +14,9 @@ export const languageSlice = createSlice({
         level: "",
       });
     },
+    addLanguageFromDB: (state, action) => {
+      state.push(action.payload);
+    },
     setLanguage: (state, action) => {
       updateState(state, action);
     },
@@ -23,6 +26,6 @@ export const languageSlice = createSlice({
   },
 });
 
-export const { setLanguage, addLanguage, deleteLanguage } = languageSlice.actions;
+export const { setLanguage,addLanguageFromDB, addLanguage, deleteLanguage } = languageSlice.actions;
 export const selectLanguages = (state) => state.languages;
 export default languageSlice.reducer;

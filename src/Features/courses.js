@@ -16,6 +16,9 @@ export const coursesSlice = createSlice({
         endDate: "",
       });
     },
+    addCourseFromDB: (state, action) => {
+      state.push(action.payload)
+    },
     setCourse: (state, action) => {
       updateState(state, action);
     },
@@ -25,6 +28,6 @@ export const coursesSlice = createSlice({
   },
 });
 
-export const { setCourse, addCourse, deleteCourse } = coursesSlice.actions;
+export const { setCourse,addCourseFromDB, addCourse, deleteCourse } = coursesSlice.actions;
 export const selectCourses = (state) => state.courses;
 export default coursesSlice.reducer;

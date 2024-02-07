@@ -7,27 +7,7 @@ import { store } from "./store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
-
-// {
-//   personalDetails: {
-//     ("First Name");
-//     ("Last Name");
-//     ("Email");
-//     ("Job Title");
-//     ("Phone");
-//     ("Country");
-//     ("City");
-//     ("Address");
-//     ("Date Of Birth");
-//   },
-//   educatin: [{},{}],
-//   employmentHistory:[{},{}],
-//   profileSummary: "",
-//   skills: [{},{}]
-// }

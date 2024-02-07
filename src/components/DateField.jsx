@@ -1,43 +1,18 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setEmployment } from "../Features/employmentHistory";
-import { setEducation } from "../Features/educations";
-import { setProject } from "../Features/projects";
-import { setCourse } from "../Features/courses";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFieldData, setStateElement } from "../functions";
+
 
 export default function DateField({ section, idInArray }) {
   const dispatch = useDispatch();
-
+  const startDate = useSelector((state) =>
+    selectFieldData(state, section, "startDate", idInArray)
+  );
+  const endDate = useSelector((state) =>
+    selectFieldData(state, section, "endDate", idInArray)
+  );
   function handleChange(e, keyField) {
-    if (section.includes("employmentHistory")) {
-      dispatch(
-        setEmployment({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("education")) {
-      dispatch(
-        setEducation({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("projects")) {
-      dispatch(
-        setProject({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("courses")) {
-      dispatch(
-        setCourse({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    }
+    setStateElement(section, dispatch, keyField, e.target.value, idInArray);
   }
 
   return (
@@ -49,6 +24,7 @@ export default function DateField({ section, idInArray }) {
         <input
           className="p-2 my-1 bg-light-gray outline-none rounded-sm w-full"
           type="text"
+          value={startDate}
           onChange={(e) => handleChange(e, "startDate")}
           id={section + "startDate"}
           placeholder="MM/YYYY"
@@ -56,6 +32,7 @@ export default function DateField({ section, idInArray }) {
         <input
           className="p-2 my-1 bg-light-gray outline-none rounded-sm w-full"
           onChange={(e) => handleChange(e, "endDate")}
+          value={endDate}
           type="text"
           id={section + "endDate"}
           placeholder="MM/YYYY"

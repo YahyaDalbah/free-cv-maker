@@ -16,6 +16,9 @@ export const projectsSlice = createSlice({
         desc: "",
       });
     },
+    addProjectFromDB: (state, action) => {
+      state.push(action.payload);
+    },
     setProject: (state, action) => {
       updateState(state, action);
     },
@@ -25,7 +28,7 @@ export const projectsSlice = createSlice({
   },
 });
 
-export const { setProject, addProject, deleteProject } =
+export const { setProject,addProjectFromDB, addProject, deleteProject } =
   projectsSlice.actions;
 export const selectProjects = (state) => state.projects;
 export default projectsSlice.reducer;

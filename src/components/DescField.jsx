@@ -1,9 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setProfileSummary } from "../Features/profileSummary";
-import { setEmployment } from "../Features/employmentHistory";
-import { setEducation } from "../Features/educations";
-import { setProject } from "../Features/projects";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFieldData, selectStateSection, setStateElement, updateDB } from "../functions";
 
 export default function DescField({
   label,
@@ -14,31 +11,14 @@ export default function DescField({
 }) {
   const dispatch = useDispatch();
 
+  const value = useSelector((state) =>
+    selectFieldData(state, section, keyField, idInArray)
+  );
+  
+
   function handleChange(e) {
-    if (section.includes("profileSummary")) {
-      dispatch(setProfileSummary(e.target.value));
-    } else if (section.includes("employmentHistory")) {
-      dispatch(
-        setEmployment({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("education")) {
-      dispatch(
-        setEducation({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("projects")) {
-      dispatch(
-        setProject({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    }
+    updateDB();
+    setStateElement(section, dispatch, keyField, e.target.value, idInArray);
   }
 
   return (
@@ -52,6 +32,7 @@ export default function DescField({
         placeholder={placeholder || ""}
         className="whitespace-break-spaces p-2 my-1 bg-light-gray outline-none rounded-sm min-h-44 resize-none"
         onChange={handleChange}
+        value={value}
         type="text"
         id={section + label}
       />

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   firstName: "",
@@ -13,21 +13,22 @@ const initialState = {
   dateOfBirth: "",
 };
 
-export const personalDetailsSlice = createSlice({
-    name: 'personalDetails',
-    initialState,
-    reducers:{
-      setImage: (state,action) => {
-        state.imageURL = action.payload
-      },
-      setPersonalDetails: (state,action) => {
-        
-        state[action.payload[0]] = action.payload[1];
-        
-      }
-    }
-})
+export const setImageAsync = createAsyncThunk('')
 
-export const {setImage, setPersonalDetails} = personalDetailsSlice.actions
+const personalDetailsSlice = createSlice({
+  name: "personalDetails",
+  initialState,
+  reducers: {
+    setImage: (state, action) => {
+      state.imageURL = action.payload;
+    },
+    setPersonalDetails: (state, action) => {
+      state[action.payload[0]] = action.payload[1];
+    },
+    
+  },
+});
+
+export const { setImage, setPersonalDetails } = personalDetailsSlice.actions;
 export const selectPersonalDetails = (state) => state.personalDetails;
-export default personalDetailsSlice.reducer
+export default personalDetailsSlice.reducer;

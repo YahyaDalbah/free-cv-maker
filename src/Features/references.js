@@ -16,6 +16,9 @@ export const referenceSlice = createSlice({
         email: "",
       });
     },
+    addReferenceFromDB: (state, action) => {
+      state.push(action.payload);
+    },
     setReference: (state, action) => {
       updateState(state, action);
     },
@@ -25,7 +28,7 @@ export const referenceSlice = createSlice({
   },
 });
 
-export const { setReference, addReference, deleteReference } =
+export const { setReference,addReferenceFromDB, addReference, deleteReference } =
   referenceSlice.actions;
 export const selectReferences = (state) => state.references;
 export default referenceSlice.reducer;

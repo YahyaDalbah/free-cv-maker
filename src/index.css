@@ -12,7 +12,7 @@
 }
 
 .center-with-position {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -37,4 +37,7 @@
 .cv-date-text {
   color: #a0a2aa;
   font-size: 10px;
+}
+.auth-btn{
+  @apply transition-all hover:text-blue 
 }

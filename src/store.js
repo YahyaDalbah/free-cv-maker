@@ -14,7 +14,7 @@ export const store = configureStore({
     personalDetails: personalDetailsReducer,
     profileSummary: profileSummaryReducer,
     employmentHistory: employmentHistoryReducer,
-    educations: educationsReducer,
+    education: educationsReducer,
     skills: skillsReducer,
     projects: projectsReducer,
     languages: languagesReducer,

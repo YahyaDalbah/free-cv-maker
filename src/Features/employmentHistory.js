@@ -18,6 +18,10 @@ export const employmentHistorySlice = createSlice({
         desc: "",
       });
     },
+    addEmploymentFromDB: (state, action) => {
+      state.push(action.payload)
+    },
+    
     setEmployment: (state, action) => {
       updateState(state, action)
     },
@@ -27,6 +31,6 @@ export const employmentHistorySlice = createSlice({
   },
 });
 
-export const { setEmployment, addEmployment, deleteEmployment } = employmentHistorySlice.actions;
+export const { setEmployment,addEmploymentFromDB, addEmployment, deleteEmployment } = employmentHistorySlice.actions;
 export const selectEmploymentHistory = (state) => state.employmentHistory;
 export default employmentHistorySlice.reducer;

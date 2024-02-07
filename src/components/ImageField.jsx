@@ -2,16 +2,29 @@ import React, { useRef } from "react";
 import blankHead from "../assets/blank-head.png";
 import { useDispatch } from "react-redux";
 import { setImage } from "../Features/personalDetails";
+import {
+  getDownloadURL,
+  list,
+  listAll,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
+import { storage } from "../firebaseConfig";
+import { nanoid } from "@reduxjs/toolkit";
+import { updateDB } from "../functions";
 
 export default function ImageField() {
   const imageRef = useRef(null);
   const dispatch = useDispatch();
 
-  function handleImageChange(e) {
-    const file = e.target.files[0];
+  async function handleImageChange(e) {
+    const image = e.target.files[0];
+    const imageID = nanoid();
     const regex = /^image\/.*$/;
-    if (file && regex.test(file.type)) {
-      dispatch(setImage(URL.createObjectURL(file)));
+    if (image && regex.test(image.type)) {
+      const imageRef = ref(storage, `images/${imageID}`);
+      const img = await uploadBytes(imageRef, image);
+      getDownloadURL(img.ref).then((url) => dispatch(setImage(url))).then(() => updateDB())
     }
   }
 

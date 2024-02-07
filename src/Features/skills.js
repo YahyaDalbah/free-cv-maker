@@ -14,6 +14,9 @@ export const skillSlice = createSlice({
         level: "",
       });
     },
+    addSkillFromDB: (state, action) => {
+      state.push(action.payload);
+    },
     setSkill: (state, action) => {
       updateState(state, action);
     },
@@ -23,6 +26,6 @@ export const skillSlice = createSlice({
   },
 });
 
-export const { setSkill, addSkill, deleteSkill } = skillSlice.actions;
+export const { setSkill,addSkillFromDB, addSkill, deleteSkill } = skillSlice.actions;
 export const selectSkills = (state) => state.skills;
 export default skillSlice.reducer;

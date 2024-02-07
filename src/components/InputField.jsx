@@ -1,13 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setPersonalDetails } from "../Features/personalDetails";
-import { setEmployment } from "../Features/employmentHistory";
-import { setEducation } from "../Features/educations";
-import { setSkill } from "../Features/skills";
-import { setProject } from "../Features/projects";
-import { setLanguage } from "../Features/languages";
-import { setCourse } from "../Features/courses";
-import { setReference } from "../Features/references";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectFieldData,
+  selectStateSection,
+  setStateElement,
+  updateDB,
+} from "../functions";
 
 export default function InputField({
   label,
@@ -18,56 +16,15 @@ export default function InputField({
 }) {
   const dispatch = useDispatch();
 
+  const value = useSelector((state) =>
+    selectFieldData(state, section, keyField, idInArray)
+  );
+  
+
   function handleChange(e) {
-    if (section.includes("personalDetails")) {
-      dispatch(setPersonalDetails([keyField, e.target.value]));
-    } else if (section.includes("employmentHistory")) {
-      dispatch(
-        setEmployment({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("education")) {
-      dispatch(
-        setEducation({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("skills")) {
-      dispatch(
-        setSkill({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("projects")) {
-      dispatch(
-        setProject({ id: idInArray, changedField: [keyField, e.target.value] })
-      );
-    } else if (section.includes("languages")) {
-      dispatch(
-        setLanguage({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("courses")) {
-      dispatch(
-        setCourse({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    } else if (section.includes("references")) {
-      dispatch(
-        setReference({
-          id: idInArray,
-          changedField: [keyField, e.target.value],
-        })
-      );
-    }
+    updateDB();
+    
+    setStateElement(section, dispatch, keyField, e.target.value, idInArray);
   }
 
   return (
@@ -76,8 +33,9 @@ export default function InputField({
         {label}
       </label>
       <input
-        className="p-2 my-1 bg-light-gray outline-none rounded-sm "
+        className="p-2 my-1 bg-light-gray outline-none rounded-sm"
         type="text"
+        value={value}
         onChange={handleChange}
         id={section + label}
       />
