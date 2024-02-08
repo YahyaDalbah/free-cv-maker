@@ -17,6 +17,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.center-with-fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .cv-page-button {
   @apply rounded-full py-2 px-3 text-sm;
 }
@@ -40,4 +46,11 @@
 }
 .auth-btn{
   @apply transition-all hover:text-blue 
+}
+
+.auth-input{
+  @apply flex flex-col
+}
+.auth-container-height{
+
 }

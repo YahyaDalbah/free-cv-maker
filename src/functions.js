@@ -10,11 +10,11 @@ import { addProjectFromDB, setProject } from "./Features/projects";
 import { addLanguageFromDB, setLanguage } from "./Features/languages";
 import { addCourseFromDB, setCourse } from "./Features/courses";
 import { addReferenceFromDB, setReference } from "./Features/references";
-import { doc, updateDoc,setDoc } from "firebase/firestore";
+import { doc, updateDoc, setDoc, addDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import Cookies from "universal-cookie";
 import debounce from "lodash.debounce";
-import {store} from "./store"
+import { store } from "./store";
 const cookies = new Cookies();
 
 export function getElement(array, id) {
@@ -156,9 +156,13 @@ export const setStateElement = (
   }
 };
 
+export const addDocToDB = async (id) => {
+  await setDoc(doc(db, `users`, `${id}`), store.getState());
+};
+
 export const updateDB = debounce(() => {
-  if(cookies.get("auth-token")){
-    setDoc(doc(db, `users/${cookies.get("auth-token")}`), store.getState());
+  if (cookies.get("auth-token")) {
+    setDoc(doc(db, `users`, `${cookies.get("auth-token")}`), store.getState());
   }
 }, 2000);
 

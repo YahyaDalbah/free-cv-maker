@@ -1,9 +1,32 @@
 import React, { useState } from "react";
 import blankHead from "../assets/blank-head.png";
-import LogInList from "./AuthList";
-import AuthList from "./AuthList";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
-export default function UserLogIn() {
+function List({ setIsUserLoggingIn, setShowAuthPage }) {
+  function handleLogOut(){
+    cookies.remove("auth-token")
+    window.location.reload()
+  }
+  return !cookies.get("auth-token") ? (
+    <div className="flex flex-col bg-white shadow w-72 justify-start items-start gap-4 py-2 px-4 rounded-lg">
+      <button onClick={() => {
+        setShowAuthPage(true)
+        setIsUserLoggingIn(true)
+      }} className="auth-btn">Log in</button>
+      <button onClick={() => {
+        setShowAuthPage(true);
+        setIsUserLoggingIn(false)
+      }} className="auth-btn">Sign up</button>
+    </div>
+  ) : (
+    <div className="flex flex-col bg-white shadow w-72 justify-start items-start gap-4 py-2 px-4 rounded-lg">
+      <button onClick={handleLogOut} className="auth-btn">Log out</button>
+    </div>
+  );
+}
+
+export default function UserLogIn({ setIsUserLoggingIn, setShowAuthPage }) {
   const [showList, setShowList] = useState(false);
 
   return (
@@ -14,11 +37,7 @@ export default function UserLogIn() {
       >
         <img width="20px" src={blankHead} alt="" />
       </button>
-      {showList && (
-        <div className="flex flex-col bg-white shadow w-72 justify-start items-start gap-4 py-2 px-4 rounded-lg">
-          <AuthList />
-        </div>
-      )}
+      {showList && <List setShowAuthPage={setShowAuthPage} setIsUserLoggingIn={setIsUserLoggingIn} />}
     </div>
   );
 }

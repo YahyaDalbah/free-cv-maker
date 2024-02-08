@@ -18,13 +18,14 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import { setPersonalDetails } from "./Features/personalDetails";
 import { useDispatch } from "react-redux";
-import Cookies from "universal-cookie";
 import { addStateSectionObj, setStateElement } from "./functions";
-import { addEducationFromDB } from "./Features/educations";
+import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export default function App() {
   const [showPdf, setShowPdf] = useState(false);
+  const [showAuthPage, setShowAuthPage] = useState(false);
+  const [isUserLoggingIn, setIsUserLoggingIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -64,13 +65,13 @@ export default function App() {
           setLoading(false);
           console.error(err);
         });
-    }else{
-      setLoading(false)
+    } else {
+      setLoading(false);
     }
   }, [dispatch]);
   if (!loading)
     return (
-      <div>
+      <div style={{ overflow: showAuthPage ? "hidden" : "" }}>
         <div className="grid grid-cols-1 xl:grid-cols-2">
           <DetailsPage
             className={`mx-4 my-8 sm:mx-16 overflow-auto ${
@@ -129,8 +130,17 @@ export default function App() {
           <i className="fa-solid fa-file-pdf"></i>
         </button>
 
-        <UserLogIn />
-        <AuthPage />
+        <UserLogIn
+          setIsUserLoggingIn={setIsUserLoggingIn}
+          setShowAuthPage={setShowAuthPage}
+        />
+        {showAuthPage && (
+          <AuthPage
+            isUserLoggingIn={isUserLoggingIn}
+            setIsUserLoggingIn={setIsUserLoggingIn}
+            setShowAuthPage={setShowAuthPage}
+          />
+        )}
       </div>
     );
   else
