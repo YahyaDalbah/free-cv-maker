@@ -27,7 +27,7 @@ export default function DateField({ section, idInArray }) {
           value={startDate}
           onChange={(e) => handleChange(e, "startDate")}
           id={section + "startDate"}
-          placeholder="MM/YYYY"
+          placeholder="e.g: March 2023"
         />
         <input
           className="p-2 my-1 bg-light-gray outline-none rounded-sm w-full"
@@ -35,7 +35,7 @@ export default function DateField({ section, idInArray }) {
           value={endDate}
           type="text"
           id={section + "endDate"}
-          placeholder="MM/YYYY"
+          placeholder="e.g: July 2024"
         />
       </div>
     </div>
