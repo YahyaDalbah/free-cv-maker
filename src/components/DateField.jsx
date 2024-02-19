@@ -17,7 +17,7 @@ export default function DateField({ section, idInArray }) {
 
   return (
     <div className="flex flex-col">
-      <label className=" text-dark-gray" htmlFor={section}>
+      <label className=" text-dark-gray">
         Start & End Date
       </label>
       <div className="flex gap-x-3">

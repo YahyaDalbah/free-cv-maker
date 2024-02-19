@@ -16,10 +16,10 @@ import UserLogIn from "./components/UserLogIn";
 import AuthPage from "./Pages/AuthPage";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
-import { setPersonalDetails } from "./Features/personalDetails";
 import { useDispatch } from "react-redux";
 import { addStateSectionObj, setStateElement } from "./functions";
 import Cookies from "universal-cookie";
+import { font } from "./assets/poppins-regular-normal";
 const cookies = new Cookies();
 
 export default function App() {
@@ -68,7 +68,7 @@ export default function App() {
     } else {
       setLoading(false);
     }
-  }, [dispatch]);
+  }, []);
   if (!loading)
     return (
       <div style={{ overflow: showAuthPage ? "hidden" : "" }}>
@@ -103,8 +103,11 @@ export default function App() {
                   onClick={() => {
                     const doc = new jsPDF({
                       unit: "pt",
+                      putOnlyUsedFonts: true,
                     });
+
                     const elementToConvert = document.querySelector("#cv");
+                    console.log(doc.getFontList());
                     doc.html(elementToConvert, {
                       callback: (doc) => {
                         doc.save();

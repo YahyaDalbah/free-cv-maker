@@ -95,10 +95,10 @@ export default function CV() {
   return (
     <div
       id="cv"
-      className="px-10 py-6 rounded bg-white h-pdf scale-90 md:transform-none"
+      className="px-10 letter-spacing py-6 rounded bg-white h-pdf scale-90 md:transform-none"
     >
       <Header />
-      <div className="grid grid-cols-3 gap-x-12">
+      <div className="grid grid-cols-3 gap-x-4">
         <Main className=" col-span-2">
           {profileSummary.summary && (
             <MainSection title="Profile">
@@ -120,7 +120,9 @@ export default function CV() {
             <MainSection title={"Courses"}>{displayedCourses}</MainSection>
           )}
           {displayedReferences.length > 0 && (
-            <MainSection title={"References"}>{displayedReferences}</MainSection>
+            <MainSection title={"References"}>
+              {displayedReferences}
+            </MainSection>
           )}
         </Main>
 

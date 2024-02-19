@@ -26,7 +26,6 @@ export function getElement(array, id) {
 }
 export function updateState(array, action) {
   const element = getElement(array, action.payload.id);
-  console.log(array, element);
 
   element[action.payload.changedField[0]] = action.payload.changedField[1];
 }

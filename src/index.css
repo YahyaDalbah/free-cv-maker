@@ -5,7 +5,10 @@
 @tailwind utilities;
 
 #root {
-  font-family: "Poppins", sans-serif;
+  font-family: "poppins", sans-serif;
+}
+#cv{
+  font-family: sans-serif;
 }
 .drop-down-container {
   @apply flex flex-col gap-y-4;
@@ -44,13 +47,13 @@
   color: #a0a2aa;
   font-size: 10px;
 }
-.auth-btn{
-  @apply transition-all hover:text-blue 
+.auth-btn {
+  @apply transition-all hover:text-blue;
 }
 
-.auth-input{
-  @apply flex flex-col
+.auth-input {
+  @apply flex flex-col;
 }
-.auth-container-height{
-
+.letter-spacing{
+  letter-spacing: 0.01px;
 }

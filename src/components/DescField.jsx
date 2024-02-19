@@ -1,6 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFieldData, selectStateSection, setStateElement, updateDB } from "../functions";
+import {
+  selectFieldData,
+  selectStateSection,
+  setStateElement,
+  updateDB,
+} from "../functions";
 
 export default function DescField({
   label,
@@ -14,11 +19,21 @@ export default function DescField({
   const value = useSelector((state) =>
     selectFieldData(state, section, keyField, idInArray)
   );
-  
 
   function handleChange(e) {
-    updateDB();
-    setStateElement(section, dispatch, keyField, e.target.value, idInArray);
+    if (e.key === "Enter") {
+      updateDB();
+      setStateElement(
+        section,
+        dispatch,
+        keyField,
+        e.target.value + "\n",
+        idInArray
+      );
+    } else {
+      updateDB();
+      setStateElement(section, dispatch, keyField, e.target.value, idInArray);
+    }
   }
 
   return (
