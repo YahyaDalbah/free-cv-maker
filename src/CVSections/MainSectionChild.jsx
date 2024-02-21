@@ -32,7 +32,7 @@ export default function MainSectionChild({
           {startDate} - {endDate}
         </p>
       )}
-      <p className="cv-desc-text whitespace-pre-line">{desc}</p>
+      <p className="cv-desc-text">{desc}</p>
     </div>
   );
 }

@@ -22,6 +22,9 @@ const personalDetailsSlice = createSlice({
     setImage: (state, action) => {
       state.imageURL = action.payload;
     },
+    deleteImage: (state) => {
+      state.imageURL = "";
+    },
     setPersonalDetails: (state, action) => {
       state[action.payload[0]] = action.payload[1];
     },
@@ -29,6 +32,6 @@ const personalDetailsSlice = createSlice({
   },
 });
 
-export const { setImage, setPersonalDetails } = personalDetailsSlice.actions;
+export const { setImage, setPersonalDetails, deleteImage } = personalDetailsSlice.actions;
 export const selectPersonalDetails = (state) => state.personalDetails;
 export default personalDetailsSlice.reducer;

@@ -16,6 +16,7 @@ import { selectProjects } from "../Features/projects";
 import { selectLanguages } from "../Features/languages";
 import { selectCourses } from "../Features/courses";
 import { selectReferences } from "../Features/references";
+import ListSectionChild from "./ListSectionChild";
 
 export default function CV() {
   const profileSummary = useSelector(selectProfileSummary);
@@ -47,7 +48,7 @@ export default function CV() {
       endDate={education.endDate}
       city={education.city}
       desc={education.desc}
-      atPlace={"at"}
+      atPlace={","}
     />
   ));
 
@@ -73,7 +74,7 @@ export default function CV() {
     />
   ));
   const displayedCourses = courses.map((course) => (
-    <MainSectionChild
+    <ListSectionChild
       key={course.id}
       workDone={course.course}
       place={course.institution}
@@ -83,7 +84,7 @@ export default function CV() {
     />
   ));
   const displayedReferences = references.map((reference) => (
-    <MainSectionChild
+    <ListSectionChild
       key={reference.id}
       workDone={reference.referent}
       place={reference.company}

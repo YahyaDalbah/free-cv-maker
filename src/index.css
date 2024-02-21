@@ -38,6 +38,7 @@
   font-size: 12px;
   max-width: 100%;
   color: #40464e;
+  white-space: pre-line;
 }
 .cv-sub-heading-text {
   font-size: 14px;

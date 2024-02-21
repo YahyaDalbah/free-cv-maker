@@ -44,6 +44,9 @@ export default function Education() {
           idInArray={education.id}
           keyField={"desc"}
           label={"Description"}
+          placeholder={
+            "e.g: graduated with high honors\nIf you prefer not to provide a description, you can simply state your degree and school here.\ne.g: Bachelor in Computer Science, Harvard University, 2010 - 2014"
+          }
           section={`education + ${education.id}`}
         />
       </SectionFields>

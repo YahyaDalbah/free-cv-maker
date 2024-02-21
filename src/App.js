@@ -94,8 +94,8 @@ export default function App() {
               windowWidth < 1280 && showPdf ? "w-screen h-screen" : ""
             } bg-gray-bg flex justify-center`}
           >
-            <div className="w-pdf mt-10 xl:fixed">
-              <div className="flex justify-between text-white md:mb-3">
+            <div className="w-pdf mt-4 xl:fixed">
+              <div className="flex justify-between text-white mb-3">
                 <button className="hover:bg-gray-600 cv-page-button">
                   Select template
                 </button>
@@ -107,11 +107,14 @@ export default function App() {
                     });
 
                     const elementToConvert = document.querySelector("#cv");
+
                     console.log(doc.getFontList());
                     doc.html(elementToConvert, {
                       callback: (doc) => {
                         doc.save();
                       },
+                      autoPaging: "text",
+                      margin: [20, 0, 0, 0],
                     });
                   }}
                   className=" bg-blue hover:bg-hover-blue cv-page-button font-semibold"
