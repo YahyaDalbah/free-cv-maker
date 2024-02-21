@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFieldData, setStateElement } from "../functions";
+import { selectFieldData, setStateElement, updateDB } from "../functions";
 
 
 export default function DateField({ section, idInArray }) {
@@ -12,6 +12,7 @@ export default function DateField({ section, idInArray }) {
     selectFieldData(state, section, "endDate", idInArray)
   );
   function handleChange(e, keyField) {
+    updateDB()
     setStateElement(section, dispatch, keyField, e.target.value, idInArray);
   }
 

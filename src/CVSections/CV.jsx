@@ -2,8 +2,6 @@ import React from "react";
 import Header from "./Header";
 import MainSection from "./MainSection";
 import MainSectionChild from "./MainSectionChild";
-import Side from "./Side";
-import Main from "./Main";
 import SideDetails from "./SideDetails";
 import SideSection from "./SideSection";
 import SideSectionChild from "./SideSectionChild";
@@ -94,13 +92,10 @@ export default function CV() {
     />
   ));
   return (
-    <div
-      id="cv"
-      className="px-10 letter-spacing py-6 rounded bg-white h-pdf scale-90 md:transform-none"
-    >
+    <div id="cv" className="px-10 letter-spacing py-6 rounded bg-white w-pdf h-pdf">
       <Header />
-      <div className="grid grid-cols-3 gap-x-4">
-        <Main className=" col-span-2">
+      <div className="grid grid-cols-custom gap-x-4">
+        <div className=" col-span-2">
           {profileSummary.summary && (
             <MainSection title="Profile">
               <MainSectionChild desc={profileSummary.summary} />
@@ -125,9 +120,9 @@ export default function CV() {
               {displayedReferences}
             </MainSection>
           )}
-        </Main>
+        </div>
 
-        <Side>
+        <div>
           <SideDetails />
           {displayedSkills.length > 0 && (
             <SideSection title={"Skills"}>{displayedSkills}</SideSection>
@@ -135,7 +130,7 @@ export default function CV() {
           {displayedLanguages.length > 0 && (
             <SideSection title={"Languages"}>{displayedLanguages}</SideSection>
           )}
-        </Side>
+        </div>
       </div>
     </div>
   );

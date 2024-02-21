@@ -4,8 +4,6 @@ import Summary from "./DetailsSections/ProfileSummary";
 import EmploymentHistory from "./DetailsSections/EmploymentHistory";
 import Education from "./DetailsSections/Education";
 import Skills from "./DetailsSections/Skills";
-import CVPage from "./Pages/CVPage";
-import DetailsPage from "./Pages/DetailsPage";
 import CV from "./CVSections/CV";
 import { jsPDF } from "jspdf";
 import Projects from "./DetailsSections/Projects";
@@ -19,7 +17,6 @@ import { db } from "./firebaseConfig";
 import { useDispatch } from "react-redux";
 import { addStateSectionObj, setStateElement } from "./functions";
 import Cookies from "universal-cookie";
-import { font } from "./assets/poppins-regular-normal";
 const cookies = new Cookies();
 
 export default function App() {
@@ -73,7 +70,7 @@ export default function App() {
     return (
       <div style={{ overflow: showAuthPage ? "hidden" : "" }}>
         <div className="grid grid-cols-1 xl:grid-cols-2">
-          <DetailsPage
+          <div
             className={`mx-4 my-8 sm:mx-16 overflow-auto ${
               showPdf && windowWidth < 1280 ? "hidden" : ""
             }`}
@@ -87,15 +84,15 @@ export default function App() {
             <Languages />
             <Courses />
             <References />
-          </DetailsPage>
+          </div>
 
-          <CVPage
+          <div
             className={`${!showPdf && windowWidth < 1280 ? "hidden" : ""} ${
               windowWidth < 1280 && showPdf ? "w-screen h-screen" : ""
             } bg-gray-bg flex justify-center`}
           >
             <div className="w-pdf mt-4 xl:fixed">
-              <div className="flex justify-between text-white mb-3">
+              <div className="flex sm:justify-between text-white mb-3">
                 <button className="hover:bg-gray-600 cv-page-button">
                   Select template
                 </button>
@@ -126,7 +123,7 @@ export default function App() {
                 <CV />
               </div>
             </div>
-          </CVPage>
+          </div>
         </div>
 
         <button

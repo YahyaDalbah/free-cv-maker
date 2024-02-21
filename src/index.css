@@ -7,7 +7,7 @@
 #root {
   font-family: "poppins", sans-serif;
 }
-#cv{
+#cv {
   font-family: sans-serif;
 }
 .drop-down-container {
@@ -29,7 +29,9 @@
 .cv-page-button {
   @apply rounded-full py-2 px-3 text-sm;
 }
-
+.grid-cols-custom {
+  grid-template-columns: repeat(3, 1fr);
+}
 .cv-heading-text {
   font-size: 18px;
   font-weight: 700;
@@ -55,6 +57,6 @@
 .auth-input {
   @apply flex flex-col;
 }
-.letter-spacing{
+.letter-spacing {
   letter-spacing: 0.01px;
 }
