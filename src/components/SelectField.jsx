@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSkill } from "../Features/skills";
 import { setLanguage } from "../Features/languages";
-import { selectStateSection, updateDB } from "../functions";
+import { updateDB } from "../functions";
 
 export default function SelectField({
   label,

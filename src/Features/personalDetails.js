@@ -11,6 +11,8 @@ const initialState = {
   city: "",
   address: "",
   dateOfBirth: "",
+  githubURL: "",
+  linkedInURL: ""
 };
 
 export const setImageAsync = createAsyncThunk('')

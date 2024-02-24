@@ -2,13 +2,12 @@ import { auth, provider } from "../firebaseConfig";
 import {
   signInWithPopup,
   getAdditionalUserInfo,
-  GoogleAuthProvider,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { useState } from "react";
 import Cookies from "universal-cookie";
-import { addDocToDB, updateDB } from "../functions";
+import { addDocToDB } from "../functions";
 const cookies = new Cookies();
 
 export default function AuthPage({

@@ -10,7 +10,7 @@ import { addProjectFromDB, setProject } from "./Features/projects";
 import { addLanguageFromDB, setLanguage } from "./Features/languages";
 import { addCourseFromDB, setCourse } from "./Features/courses";
 import { addReferenceFromDB, setReference } from "./Features/references";
-import { doc, updateDoc, setDoc, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import Cookies from "universal-cookie";
 import debounce from "lodash.debounce";

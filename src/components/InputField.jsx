@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFieldData,
-  selectStateSection,
   setStateElement,
   updateDB,
 } from "../functions";
@@ -13,6 +12,7 @@ export default function InputField({
   span,
   keyField,
   idInArray,
+  placeholder
 }) {
   const dispatch = useDispatch();
 
@@ -35,6 +35,7 @@ export default function InputField({
       <input
         className="p-2 my-1 bg-light-gray outline-none rounded-sm"
         type="text"
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
         id={section + label}

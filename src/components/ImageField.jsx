@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteImage, setImage } from "../Features/personalDetails";
 import {
   getDownloadURL,
-  list,
-  listAll,
   ref,
   uploadBytes,
 } from "firebase/storage";
