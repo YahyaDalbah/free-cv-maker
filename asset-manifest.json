@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/free-cv-maker/static/css/main.78357708.css",
-    "main.js": "/free-cv-maker/static/js/main.c238b77a.js",
+    "main.css": "/free-cv-maker/static/css/main.2606da49.css",
+    "main.js": "/free-cv-maker/static/js/main.d5fea860.js",
     "static/js/498.4d90d90e.chunk.js": "/free-cv-maker/static/js/498.4d90d90e.chunk.js",
     "static/js/703.2ab7767a.chunk.js": "/free-cv-maker/static/js/703.2ab7767a.chunk.js",
     "static/js/198.6038c9e3.chunk.js": "/free-cv-maker/static/js/198.6038c9e3.chunk.js",
     "index.html": "/free-cv-maker/index.html",
-    "main.78357708.css.map": "/free-cv-maker/static/css/main.78357708.css.map",
-    "main.c238b77a.js.map": "/free-cv-maker/static/js/main.c238b77a.js.map",
+    "main.2606da49.css.map": "/free-cv-maker/static/css/main.2606da49.css.map",
+    "main.d5fea860.js.map": "/free-cv-maker/static/js/main.d5fea860.js.map",
     "498.4d90d90e.chunk.js.map": "/free-cv-maker/static/js/498.4d90d90e.chunk.js.map",
     "703.2ab7767a.chunk.js.map": "/free-cv-maker/static/js/703.2ab7767a.chunk.js.map",
     "198.6038c9e3.chunk.js.map": "/free-cv-maker/static/js/198.6038c9e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.78357708.css",
-    "static/js/main.c238b77a.js"
+    "static/css/main.2606da49.css",
+    "static/js/main.d5fea860.js"
   ]
 }
