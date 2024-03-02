@@ -27,20 +27,20 @@ export default function SideDetails() {
         <p className="cv-desc-text">{city}</p>
         <p className="cv-desc-text">{country}</p>
         <p className="cv-desc-text">{phone}</p>
-        <p className="cv-desc-text">
+        <p className="cv-desc-text text-left">
           <a className="text-blue text-left" href={`mailto:${email}`}>
             {email}
           </a>
         </p>
         {
-          <p className="cv-desc-text">
-            <a href={githubURL}>
+          <p className="cv-desc-text text-left">
+            <a className="text-blue text-left" href={githubURL}>
               {githubURL}
             </a>
           </p>
         }
         {linkedInURL && (
-          <p className="cv-desc-text">
+          <p className="cv-desc-text text-left">
             <a className="text-blue text-left" href={linkedInURL}>
               {linkedInURL}
             </a>
