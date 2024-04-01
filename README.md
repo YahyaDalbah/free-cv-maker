@@ -1,6 +1,8 @@
 # free CV maker
 A dynamic and user-friendly CV maker website where users input their data, and a CV is generated for them.
 
+https://yahyadalbah.github.io/free-cv-maker/
+
 ## prerequisites
 
 - npm
