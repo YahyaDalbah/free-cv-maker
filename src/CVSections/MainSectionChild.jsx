@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function MainSectionChild({
   workDone,
@@ -32,7 +33,9 @@ export default function MainSectionChild({
           {startDate} - {endDate}
         </p>
       )}
-      <p className="cv-desc-text">{desc}</p>
+      <p className="cv-desc-text">
+        <ReactMarkdown>{desc}</ReactMarkdown>
+      </p>
     </div>
   );
 }
