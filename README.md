@@ -22,3 +22,9 @@ https://yahyadalbah.github.io/free-cv-maker/
 - jsPDF
 - firebase for the backend
 
+## description
+- Employed jsPDF to generate the CV PDF directly from the client
+- Reusable React components, well-documented and easy-to-maintain code
+- Employed Redux and state management for instant UI changes
+- Employed Firebase authentication to login/signup users, either by email and password, or Google account using OAuth
+
