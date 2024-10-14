@@ -92,7 +92,7 @@ export default function CV() {
     />
   ));
   return (
-    <div id="cv" className="px-10 letter-spacing py-6 rounded bg-white w-pdf h-pdf">
+    <div id="cv" className="cv-background">
       <Header />
       <div className="grid grid-cols-custom gap-x-4">
         <div className=" col-span-2">

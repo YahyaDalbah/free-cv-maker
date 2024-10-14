@@ -39,13 +39,7 @@ export default function SideDetails() {
             </a>
           </p>
         }
-        {linkedInURL && (
-          <p className="cv-desc-text text-left">
-            <a className="text-blue text-left" href={linkedInURL}>
-              {linkedInURL}
-            </a>
-          </p>
-        )}
+        
       </div>
       <div>
         {dateOfBirth && <h2 className="cv-sub-heading-text">Date of birth</h2>}

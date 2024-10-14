@@ -52,10 +52,10 @@ export default function EmploymentHistory() {
 
   return (
     <div>
-      <SectionTitle title={"Employment History"} />
+      <SectionTitle title={"Experience"} />
       <div className="drop-down-container">{displayedEmploymentHistory}</div>
       <AddDropDownFieldBtn
-        text={"Add employment"}
+        text={"Add experience"}
         addFunction={addEmployment}
       />
     </div>

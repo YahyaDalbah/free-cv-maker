@@ -64,11 +64,7 @@ export default function PersonalDetails() {
           keyField={"githubURL"}
           placeholder={"e.g: https://github.com/{username}"}
         />
-        <InputField
-          label={"Linkedin profile URL"}
-          section={"personalDetails"}
-          keyField={"linkedInURL"}
-        />
+        
       </SectionFields>
     </div>
   );

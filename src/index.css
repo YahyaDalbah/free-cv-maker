@@ -10,6 +10,9 @@
 #cv {
   font-family: sans-serif;
 }
+.cv-background{
+  @apply px-10 letter-spacing py-6 rounded bg-white w-pdf h-pdf
+}
 .drop-down-container {
   @apply flex flex-col gap-y-4;
 }

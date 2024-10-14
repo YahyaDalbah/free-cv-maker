@@ -17,14 +17,16 @@ import { db } from "./firebaseConfig";
 import { useDispatch } from "react-redux";
 import { addStateSectionObj, setStateElement } from "./functions";
 import Cookies from "universal-cookie";
+import CV2 from "./CV2/CV2";
 const cookies = new Cookies();
-
+const CVs = [<CV2 />, <CV />];
 export default function App() {
   const [showPdf, setShowPdf] = useState(false);
   const [showAuthPage, setShowAuthPage] = useState(false);
   const [isUserLoggingIn, setIsUserLoggingIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [cvIndex, setCVIndex] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -100,12 +102,10 @@ export default function App() {
                   onClick={() => {
                     const doc = new jsPDF({
                       unit: "pt",
-                      putOnlyUsedFonts: true,
                     });
 
                     const elementToConvert = document.querySelector("#cv");
 
-                    console.log(doc.getFontList());
                     doc.html(elementToConvert, {
                       callback: (doc) => {
                         doc.save();
@@ -120,7 +120,7 @@ export default function App() {
                 </button>
               </div>
               <div className="bg-gray-bg ">
-                <CV />
+                {CVs[cvIndex]}
               </div>
             </div>
           </div>
