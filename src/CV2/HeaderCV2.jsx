@@ -7,8 +7,8 @@ export default function HeaderCV2() {
       );
   return (
     <div className=' flex flex-col items-center'>
-        <h1 className=' text-3xl font-bold'>{firstName} {lastName}</h1>
-        <p className=''>{phone} | {email}</p>
+        <h1 className=' text-2xl font-black'>{firstName} {lastName}</h1>
+        <p className=''>{phone} {phone && email && "|"} {email}</p>
     </div>
   )
 }
