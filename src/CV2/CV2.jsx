@@ -60,8 +60,8 @@ export default function CV2() {
         <div>{displayedProjects}</div>
       </div>
       <div>
-        <Title title={"Technologies and Languages"} />
-        <div>{displayedSkills}</div>
+        <Title title={"SKILLS"} />
+        <div className="-mt-1">{displayedSkills}</div>
       </div>
     </div>
   );

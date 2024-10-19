@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { addStateSectionObj, setStateElement } from "./functions";
 import Cookies from "universal-cookie";
 import CV2 from "./CV2/CV2";
+import SelectTemplatePage from "./Pages/SelectingTemplatePage";
 const cookies = new Cookies();
 const CVs = [<CV2 />, <CV />];
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [cvIndex, setCVIndex] = useState(0);
-
+  const [selectingTemplate, setSelectingTemplate] = useState(false);
   const dispatch = useDispatch();
 
   const handleResize = () => {
@@ -68,7 +69,24 @@ export default function App() {
       setLoading(false);
     }
   }, []);
-  if (!loading)
+
+  function selectTemplate(i){
+    setCVIndex(i)
+    setSelectingTemplate(false)
+  }
+  if (!loading) {
+    if (showAuthPage) {
+      return (
+        <AuthPage
+          isUserLoggingIn={isUserLoggingIn}
+          setIsUserLoggingIn={setIsUserLoggingIn}
+          setShowAuthPage={setShowAuthPage}
+        />
+      );
+    }
+    if(selectingTemplate){
+      return <SelectTemplatePage selectTemplate={selectTemplate} cvIndex={cvIndex} />
+    }
     return (
       <div style={{ overflow: showAuthPage ? "hidden" : "" }}>
         <div className="grid grid-cols-1 xl:grid-cols-2">
@@ -95,7 +113,13 @@ export default function App() {
           >
             <div className="w-pdf mt-4 xl:fixed">
               <div className="flex sm:justify-between text-white mb-3">
-                <button className="hover:bg-gray-600 cv-page-button">
+                <button
+                  onClick={() => {
+                    console.log("te");
+                    setSelectingTemplate(true);
+                  }}
+                  className="hover:bg-gray-600 cv-page-button"
+                >
                   Select template
                 </button>
                 <button
@@ -111,7 +135,7 @@ export default function App() {
                         doc.save();
                       },
                       autoPaging: "text",
-                      margin: [20, 0, 0, 0],
+                      margin: [0, 0, 0, 0],
                     });
                   }}
                   className=" bg-blue hover:bg-hover-blue cv-page-button font-semibold"
@@ -119,9 +143,7 @@ export default function App() {
                   Download PDF
                 </button>
               </div>
-              <div className="bg-gray-bg ">
-                {CVs[cvIndex]}
-              </div>
+              <div className="bg-gray-bg ">{CVs[cvIndex]}</div>
             </div>
           </div>
         </div>
@@ -137,16 +159,11 @@ export default function App() {
           setIsUserLoggingIn={setIsUserLoggingIn}
           setShowAuthPage={setShowAuthPage}
         />
-        {showAuthPage && (
-          <AuthPage
-            isUserLoggingIn={isUserLoggingIn}
-            setIsUserLoggingIn={setIsUserLoggingIn}
-            setShowAuthPage={setShowAuthPage}
-          />
-        )}
+
+        
       </div>
     );
-  else
+  } else
     return (
       <div className="w-screen h-screen flex justify-center items-center text-6xl font-semibold">
         Loading...
