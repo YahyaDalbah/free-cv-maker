@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/free-cv-maker/static/css/main.2606da49.css",
-    "main.js": "/free-cv-maker/static/js/main.94b16016.js",
-    "static/js/498.4d90d90e.chunk.js": "/free-cv-maker/static/js/498.4d90d90e.chunk.js",
-    "static/js/703.2ab7767a.chunk.js": "/free-cv-maker/static/js/703.2ab7767a.chunk.js",
-    "static/js/198.6038c9e3.chunk.js": "/free-cv-maker/static/js/198.6038c9e3.chunk.js",
+    "main.css": "/free-cv-maker/static/css/main.eb3fbed6.css",
+    "main.js": "/free-cv-maker/static/js/main.ce4d88cc.js",
+    "static/js/239.f1996316.chunk.js": "/free-cv-maker/static/js/239.f1996316.chunk.js",
+    "static/js/213.1f011f56.chunk.js": "/free-cv-maker/static/js/213.1f011f56.chunk.js",
+    "static/js/732.ab83267d.chunk.js": "/free-cv-maker/static/js/732.ab83267d.chunk.js",
+    "static/media/cv1.PNG": "/free-cv-maker/static/media/cv1.68feab24828b83ee28ef.PNG",
+    "static/media/cv2.PNG": "/free-cv-maker/static/media/cv2.ae9315facfe5c033a6e6.PNG",
     "index.html": "/free-cv-maker/index.html",
-    "main.2606da49.css.map": "/free-cv-maker/static/css/main.2606da49.css.map",
-    "main.94b16016.js.map": "/free-cv-maker/static/js/main.94b16016.js.map",
-    "498.4d90d90e.chunk.js.map": "/free-cv-maker/static/js/498.4d90d90e.chunk.js.map",
-    "703.2ab7767a.chunk.js.map": "/free-cv-maker/static/js/703.2ab7767a.chunk.js.map",
-    "198.6038c9e3.chunk.js.map": "/free-cv-maker/static/js/198.6038c9e3.chunk.js.map"
+    "main.eb3fbed6.css.map": "/free-cv-maker/static/css/main.eb3fbed6.css.map",
+    "main.ce4d88cc.js.map": "/free-cv-maker/static/js/main.ce4d88cc.js.map",
+    "239.f1996316.chunk.js.map": "/free-cv-maker/static/js/239.f1996316.chunk.js.map",
+    "213.1f011f56.chunk.js.map": "/free-cv-maker/static/js/213.1f011f56.chunk.js.map",
+    "732.ab83267d.chunk.js.map": "/free-cv-maker/static/js/732.ab83267d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2606da49.css",
-    "static/js/main.94b16016.js"
+    "static/css/main.eb3fbed6.css",
+    "static/js/main.ce4d88cc.js"
   ]
 }
